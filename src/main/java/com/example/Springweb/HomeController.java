@@ -1,8 +1,10 @@
 package com.example.Springweb;
 
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,10 +18,10 @@ public class HomeController {
         return "index.jsp";
     }
     @RequestMapping("add")
-    public String add(int num1, @RequestParam("num2") int secondnum, HttpSession session){
+    public String add(int num1, @RequestParam("num2") int secondnum, Model model){
 
         int result = num1 + secondnum;
-        session.setAttribute("result",result);
+        model.addAttribute("result", result);
         return "result.jsp";
     }
 }
