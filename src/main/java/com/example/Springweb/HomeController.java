@@ -15,13 +15,13 @@ public class HomeController {
     public String hello() {
         System.out.println("method called");
         System.out.println("working dir: " + System.getProperty("user.dir"));
-        return "index.jsp";
+        return "index";
     }
     @RequestMapping("add")
     public String add(int num1, @RequestParam("num2") int secondnum, Model model){
 
         int result = num1 + secondnum;
         model.addAttribute("result", result);
-        return "result.jsp";
+        return "result";
     }
 }
